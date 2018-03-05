@@ -1,0 +1,70 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-md-12" id="top-bar">
+      <h1>Eat-Da-Burger!</h1>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-12">
+      <img src="/assets/img/burger.png" id="burger-img">
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6" class="burgerList">
+      <h3>Burger List:</h3>
+      <hr>
+      <div class="row">
+        {{#each burgers}} {{#unless this.devoured}}
+        <div class="col-md-12">
+          <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+            <button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
+          </form>
+          <br>
+        </div>
+        {{/unless}} {{/each}}
+      </div>
+    </div>
+
+    <div class="col-md-6" class="eatenList">
+      <h3>Burgers Eaten:</h3>
+      <hr>
+      {{#each burgers}} {{#if this.devoured}}
+      <div class='burgerEaten'>
+        <div>
+          {{this.burger_name}}
+        </div>
+        <br>
+      </div>
+      {{/if}} {{/each}}
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-6">
+      <form class="form-inline" action="/burgers" method="POST" align="center">
+        <div class="form-group mx-sm-3 mb-2" align="center">
+          <input type="text" class="form-control" id="name" name="burger_name" placeholder=" Add a burger">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Add a Burger</button>
+      </form>
+    </div>
+
+    <div class="col-md-2">
+
+    </div>
+  </div>
+</div>
+
+<hr>
