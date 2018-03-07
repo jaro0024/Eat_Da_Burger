@@ -17,6 +17,7 @@ else {
     password: process.env.mysql_pwd,
     database: "burgers_db"
 });
+};
 
 // Make connection
 connection.connect(function(err) {
