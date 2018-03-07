@@ -19,7 +19,7 @@ Each burger in the waiting area is a button. When the user clicks it, the burger
 The app stores every burger in a database, whether eaten or not.
 
 ## Link
-https://calm-journey-30074.herokuapp.com/
+https://hidden-waters-63356.herokuapp.com/
 
 ## Author
 Daniela Jaros
