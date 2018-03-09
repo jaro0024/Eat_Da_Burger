@@ -4,14 +4,24 @@
  A restaurant app that lets users input the name of burgers they would like to eat.
 
 ## Technologies used
-* MySQL
-* Handlebars
-* ORM
-* Express Server
-* Node Server
-* JavaScript
+
 * HTML
-* Bootstrap
+* CSS
+* JavaScript
+* Node.js
+* MySQL
+* JawsDB
+* ORM
+* Heroku
+
+## Frameworks and Packages
+
+* Express.js
+* jQuery
+* Handlebars
+* Body-Parser
+* Method-override
+* DotEnv
 
 ## How it Works
 Whenever an user submits a burger's name, the app displays the burger on the left side of the page, waiting to be eaten.
