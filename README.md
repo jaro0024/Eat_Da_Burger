@@ -31,5 +31,8 @@ The app stores every burger in a database, whether eaten or not.
 ## Link
 https://hidden-waters-63356.herokuapp.com/
 
+## Demo Video
+![burger video](/public/assets/img/demo.gif)
+
 ## Author
 Daniela Jaros
