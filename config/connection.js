@@ -1,23 +1,20 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
-if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+//if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 var connection;
 
-if(process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-}
-else {
+
   connection = mysql.createConnection({
-    host: "localhost",
+    host: "yhrz9vns005e0734.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     port: 3306,
     // My username
-    user: "root",
+    user: "tdyu46zlvk8xh5m5",
     // My password from the dotenv file to keep it secured
-    password: process.env.mysql_pwd,
-    database: "burgers_db"
+    password: "t45us6fe9rp5pnrl",
+    database: "p2ugeemkd1o0bdbc"
 });
-};
+
 
 // Make connection
 connection.connect(function(err) {
@@ -27,6 +24,7 @@ connection.connect(function(err) {
     }
     console.log("connected as id " + connection.threadId);
   });
-  
+
   // Export connection for our ORM to use
   module.exports = connection;
+
