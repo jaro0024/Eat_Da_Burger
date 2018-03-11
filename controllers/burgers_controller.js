@@ -1,8 +1,6 @@
 // Dependencies
 var express = require("express");
-var methodOverride = require('method-override');
-var bodyParser = require('body-parser');
-var path = require("path");
+
 var router = express.Router();
 
 // Import the model
@@ -18,7 +16,7 @@ router.get("/", function(req, res) {
     });
   });
   
-  router.post("/burgers", function(req, res) {
+  router.post("/", function(req, res) {
     burger.insertOne([
       "burger_name"
     ], [
@@ -28,7 +26,7 @@ router.get("/", function(req, res) {
     });
   });
   
-  router.put("/burgers/:id", function(req, res) {
+  router.put("/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
     burger.updateOne({

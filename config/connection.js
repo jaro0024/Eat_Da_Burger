@@ -2,24 +2,28 @@
 var mysql = require("mysql");
 
 var connection;
-  // Connecting to JawsDB
+
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
   connection = mysql.createConnection({
-    host: "yhrz9vns005e0734.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     port: 3306,
-    user: "tdyu46zlvk8xh5m5",
-    password: "t45us6fe9rp5pnrl",
-    database: "p2ugeemkd1o0bdbc"
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "burgers_db"
+  });
+}
+
+// Make connection.
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
 });
 
-// Make connection
-connection.connect(function(err) {
-    if (err) {
-      console.error("error connecting: " + err.stack);
-      return;
-    }
-    console.log("connected as id " + connection.threadId);
-  });
-
-  // Export connection for our ORM to use
-  module.exports = connection;
+// Export connection for our ORM to use.
+module.exports = connection;
 
