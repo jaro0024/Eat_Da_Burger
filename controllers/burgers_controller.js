@@ -1,41 +1,49 @@
 // Dependencies
 var express = require("express");
-
+var methodOverride = require('method-override');
+var bodyParser = require('body-parser');
 var router = express.Router();
 
 // Import the model
 var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required
-router.get("/", function(req, res) {
-    burger.selectAll(function(data) {
-      var hbsObject = {
-        burgers: data
-      };
-      res.render("index", hbsObject);
-    });
+router.get("/", function (req, res) {
+  burger.selectAll(function (data) {
+    var hbsObject = {
+      burgers: data
+    };
+    res.render("index", hbsObject);
   });
-  
-  router.post("/burgers", function(req, res) {
-    burger.insertOne([
-      "burger_name"
-    ], [
+});
+
+router.post("/burgers", function (req, res) {
+  burger.insertOne([
+    "burger_name"
+  ], [
       req.body.burger_name
-    ], function(data) {
+    ], function (data) {
       res.redirect("/");
     });
+});
+
+router.put("/burgers/:id", function (req, res) {
+  var condition = "id = " + req.params.id;
+
+  burger.updateOne({
+    devoured: true
+  }, condition, function (data) {
+    res.redirect("/");
   });
-  
-  router.put("/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-  
-    burger.updateOne({
-      devoured: true
-    }, condition, function(data) {
-        res.redirect("/");
-    });
+});
+
+router.delete("/burgers/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  burger.deleteOne(condition, function() {
+      res.redirect("/");
   });
-  
-  // Export routes for server.js to use.
-  module.exports = router;
-  
+});
+
+// Export routes for server.js to use.
+module.exports = router;
