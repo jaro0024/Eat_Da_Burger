@@ -29,7 +29,7 @@ Each burger in the waiting area is a button. When the user clicks it, the burger
 The app stores every burger in a database, whether eaten or not.
 
 ## Link
-https://hidden-waters-63356.herokuapp.com/
+https://rocky-sierra-52943.herokuapp.com/
 
 ## Demo 
 ![burger video](/public/assets/img/demo2.gif)
